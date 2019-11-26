@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
-const NewBoardButton = () => (
+const NewTaskListButton = () => (
   <View styleName="horizontal" style={styles.toolbar}>
-    <Text style={styles.toolbarActionText}>New Task</Text>
+    <Text style={styles.toolbarActionText}>New Task List</Text>
   </View>
 );
 
-export default NewBoardButton;
+export default NewTaskListButton;

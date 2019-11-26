@@ -2,9 +2,11 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Boards from '../views/Boards';
-import Board from '../views/Board';
+import TaskList from '../views/TaskList';
 import Task from '../views/Task';
 import NewBoard from '../views/NewBoard';
+import NewTask from '../views/NewTask';
+import NewTaskList from '../views/NewTaskList';
 
 export default createAppContainer(createStackNavigator({
   Boards: {
@@ -13,8 +15,8 @@ export default createAppContainer(createStackNavigator({
       title: 'Boards'
     }
   },
-  Board: {
-    screen: Board,
+  TaskList: {
+    screen: TaskList,
     navigationOptions: {
       title: 'Task List'
     }
@@ -29,6 +31,18 @@ export default createAppContainer(createStackNavigator({
     screen: NewBoard,
     navigationOptions: {
       title: 'New Board'
+    },
+  },
+  NewTask: {
+    screen: NewTask,
+    navigationOptions: {
+      title: 'New Task'
+    }
+  },
+  NewTaskList: {
+    screen: NewTaskList,
+    navigationOptions: {
+      title: 'New Task List'
     }
   }
 },
