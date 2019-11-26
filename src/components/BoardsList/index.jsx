@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import BoardsThumbnail from '../BoardsThumbnail'
 
 const BoardsList = ({ boards }) => (
-  <View style={{ flex: 7 }}>
+  <View>
     <FlatList
       numColumns={2}
       data={boards}

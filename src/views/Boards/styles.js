@@ -6,7 +6,7 @@ export default StyleSheet.create({
     backgroundColor: '#fff'
   },
   mainContent: {
-    flex: 7,
-    backgroundColor: 'steelblue'
+    flex: 8,
+    backgroundColor: '#fff'
   }
 });

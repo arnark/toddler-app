@@ -1,21 +1,22 @@
 import React from 'react';
-import { Text, View, TouchableHighlight } from 'react-native';
+import { TouchableHighlight, View, ScrollView } from 'react-native';
 import BoardsToolbar from '../../components/BoardsToolbar';
 import BoardsList from '../../components/BoardsList';
 import data from '../../resources/data.json';
 import styles from './styles';
 
 const Boards = ({ navigation: { navigate } }) => (
-  <View style={styles.container}>
-
-    <BoardsToolbar />
+  <>
     <TouchableHighlight
+      style={styles.container}
       onPress={() => { navigate('Board'); }}
-      style={styles.mainContent}
     >
-      <BoardsList boards={data.boards} />
+      <ScrollView style={styles.mainContent}>
+        <BoardsList boards={data.boards} />
+      </ScrollView>
     </TouchableHighlight>
-  </View>
+    <BoardsToolbar />
+  </>
 );
 
 export default Boards;
