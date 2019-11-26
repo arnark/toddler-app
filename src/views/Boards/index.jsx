@@ -1,22 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TouchableHighlight, ScrollView } from 'react-native';
-import BoardsToolbar from '../../components/Boards/NewBoardButton';
-import BoardsList from '../../components/Boards/BoardList';
+import NewBoardButton from '../../components/Boards/NewBoardButton';
+import BoardList from '../../components/Boards/BoardList';
 import data from '../../resources/data.json';
 import styles from './styles';
 
-const Boards = ({ navigation: { navigate } }) => (
+const Boards = ({ navigation }) => (
   <>
     <TouchableHighlight
       style={styles.container}
-      onPress={() => { navigate('Board'); }}
+      onPress={() => { navigation.navigate('Board'); }}
     >
       <ScrollView style={styles.mainContent}>
-        <BoardsList boards={data.boards} />
+        <BoardList boards={data.boards} />
       </ScrollView>
     </TouchableHighlight>
-    <BoardsToolbar />
+
+    <TouchableHighlight
+      onPress={() => { navigation.navigate('NewBoard'); }}
+    >
+      <NewBoardButton />
+    </TouchableHighlight>
+
   </>
 );
+
+Boards.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Boards;

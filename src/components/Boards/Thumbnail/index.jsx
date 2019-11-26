@@ -1,9 +1,8 @@
 import React from 'react';
-import { Image, Text, TouchableHighlight } from 'react-native';
+import { Text, Image, TouchableHighlight } from 'react-native';
 import styles from './styles';
 
-const BoardsThumbnail = ({ thumbnailPhoto, name }) => (
-
+const Thumbnail = ({ thumbnailPhoto, name }) => (
   <TouchableHighlight
     style={styles.thumbnailContainer}
   >
@@ -18,4 +17,4 @@ const BoardsThumbnail = ({ thumbnailPhoto, name }) => (
   </TouchableHighlight>
 );
 
-export default BoardsThumbnail;
+export default Thumbnail;

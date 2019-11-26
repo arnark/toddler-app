@@ -12,7 +12,7 @@ const BoardsList = ({ boards }) => (
           <BoardsThumbnail thumbnailPhoto={thumbnailPhoto} name={name} />
         )
       }}
-      keyExtractor={(board) => board.name}
+      keyExtractor={(board) => board.id}
     />
   </View>
 );

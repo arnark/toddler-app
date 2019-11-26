@@ -4,7 +4,7 @@ import styles from './styles';
 
 const NewBoardButton = () => (
   <View styleName="horizontal" style={styles.toolbar}>
-    <Text style={styles.toolbarActionText}>New Board</Text>
+    <Text style={styles.toolbarActionText}>New Task</Text>
   </View>
 );
 
