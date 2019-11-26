@@ -2,15 +2,20 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   thumbnailContainer: {
-    width: 200,
-    height: 200,
-    margin: 10
+    display: 'flex',
+    alignItems: 'center',
+    width: 190,
+    height: 190,
+    margin: 9,
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 5
   },
   thumbnailText: {
     fontSize: 16
   },
   image: {
-    width: 150,
+    width: 180,
     height: 150,
     margin: 5
   }

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   toolbar: {
-    flex: 1,
+    height: 80,
     flexDirection: 'row',
     backgroundColor: 'skyblue',
     justifyContent: 'center',
