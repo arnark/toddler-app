@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View, TouchableHighlight } from 'react-native';
 import BoardsToolbar from '../../components/BoardsToolbar';
+import BoardsList from '../../components/BoardsList';
+import data from '../../resources/data.json';
 import styles from './styles';
 
 const Boards = ({ navigation: { navigate } }) => (
@@ -11,7 +13,7 @@ const Boards = ({ navigation: { navigate } }) => (
       onPress={() => { navigate('Board'); }}
       style={styles.mainContent}
     >
-      <Text>Boards</Text>
+      <BoardsList boards={data.boards} />
     </TouchableHighlight>
   </View>
 );
