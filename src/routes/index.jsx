@@ -8,9 +8,16 @@ import Task from '../views/Task';
 import NewBoard from '../views/NewBoard';
 import NewTask from '../views/NewTask';
 import NewTaskList from '../views/NewTaskList';
+import Main from '../views/Main';
 
 
 export default createAppContainer(createStackNavigator({
+  Main: {
+    screen: Main,
+    navigationOptions: {
+      title: 'Main'
+    }
+  },
   Boards: {
     screen: Boards,
     navigationOptions: {

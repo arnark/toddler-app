@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import BoardsThumbnail from '../Thumbnail'
 
+
 const BoardsList = ({ boards }) => (
   <View>
     <FlatList
