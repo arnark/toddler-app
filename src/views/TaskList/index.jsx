@@ -11,7 +11,7 @@ const TaskList = ({ navigation }) => (
   <>
     <TouchableHighlight
       style={styles.container}
-      onPress={() => { navigation.navigate('Task'); }}
+      onPress={() => { navigation.replace('Task'); }}
     >
       <ScrollView style={styles.mainContent}>
         <TaskListComponent lists={data.lists} />

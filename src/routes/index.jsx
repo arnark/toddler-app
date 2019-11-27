@@ -18,33 +18,38 @@ export default createAppContainer(createStackNavigator({
   },
   TaskList: {
     screen: TaskList,
-    navigationOptions: {
-      title: 'Task List'
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: 'Task List',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Boards'); }} title="Boards" tintColor="#ffffff" backTitleVisible />
+    })
   },
   Task: {
     screen: Task,
-    navigationOptions: {
-      title: 'Task'
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: 'Task',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task Lists" tintColor="#ffffff" backTitleVisible />
+    })
   },
   NewBoard: {
     screen: NewBoard,
-    navigationOptions: {
-      title: 'New Board'
-    },
+    navigationOptions: ({ navigation }) => ({
+      title: 'New Board',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Boards'); }} title="Boards" tintColor="#ffffff" backTitleVisible />
+    })
   },
   NewTask: {
     screen: NewTask,
-    navigationOptions: {
-      title: 'New Task'
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: 'New Task',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Task'); }} title="Task" tintColor="#ffffff" backTitleVisible />
+    })
   },
   NewTaskList: {
     screen: NewTaskList,
-    navigationOptions: {
-      title: 'New Task List'
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: 'New Task List',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task List" tintColor="#ffffff" backTitleVisible />
+    })
   }
 },
 {

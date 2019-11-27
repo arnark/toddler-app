@@ -4,15 +4,15 @@ import { Formik } from 'formik';
 import data from '../../../services/dataImporter';
 
 async function test(values) {
-  const newBoard = {
+  const newTask = {
     id: 11,
     name: values.title,
-    thumbnailPhoto: values.description
+    description: values.description
   }
 
-  data.boards.push(newBoard);
+  data.tasks.push(newTask);
 
-  await alert(data.boards[data.boards.length - 1].name);
+  await alert('Created new task!');
 }
 
 const MyReactNativeForm = () => (
