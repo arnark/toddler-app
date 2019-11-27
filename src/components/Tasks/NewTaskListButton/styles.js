@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   toolbar: {
-    height: 80,
+    height: 60,
     flexDirection: 'row',
-    backgroundColor: 'skyblue',
+    backgroundColor: '#2e2c2e',
     justifyContent: 'center',
     alignItems: 'center'
   },

@@ -12,7 +12,7 @@ const Boards = ({ navigation }) => (
   <>
     <TouchableHighlight
       style={styles.container}
-      onPress={() => { navigation.navigate('TaskList'); }}
+      onPress={() => { navigation.replace('TaskList'); }}
     >
       <ScrollView style={styles.mainContent}>
 
