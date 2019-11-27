@@ -51,7 +51,7 @@ export default createAppContainer(createStackNavigator({
   /* The header config from HomeScreen is now here */
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: '#2e2c2e'
     },
     headerTintColor: '#fff',
     headerTitleStyle: {

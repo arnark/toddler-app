@@ -9,7 +9,8 @@ export default StyleSheet.create({
     margin: 9,
     borderWidth: 1,
     borderColor: '#000',
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: 'white'
   },
   thumbnailText: {
     fontSize: 16

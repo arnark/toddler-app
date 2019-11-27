@@ -7,6 +7,6 @@ export default StyleSheet.create({
   },
   mainContent: {
     flex: 8,
-    backgroundColor: '#fff'
+    backgroundColor: '#706c70'
   }
 });
