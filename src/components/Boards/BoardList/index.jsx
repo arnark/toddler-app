@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import BoardsThumbnail from '../Thumbnail'
-import Boards from '../../../views/Boards'
 
-const BoardsList = ({ Boards }) => (
+
+const BoardsList = ({ boards }) => (
   <View>
     <FlatList
       numColumns={2}
