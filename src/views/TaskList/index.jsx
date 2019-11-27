@@ -43,7 +43,7 @@ export default class Boards extends React.Component {
         </TouchableHighlight>
 
         <TouchableHighlight
-          onPress={() => { this.props.navigation.navigate('NewTaskList'); }}
+          onPress={() => { this.props.navigation.navigate('NewTaskList', { boardId: this.props.navigation.state.params.boardId }); }}
         >
           <NewBoardButton />
         </TouchableHighlight>

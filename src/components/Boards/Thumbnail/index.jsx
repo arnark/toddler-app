@@ -1,5 +1,4 @@
 import React from 'react';
-import { withNavigation } from 'react-navigation';
 import { Text, Image, TouchableHighlight } from 'react-native';
 import styles from './styles';
 
@@ -19,4 +18,4 @@ const Thumbnail = ({ id, name, thumbnailPhoto, navigation }) => (
   </TouchableHighlight>
 );
 
-export default withNavigation(Thumbnail);
+export default Thumbnail;

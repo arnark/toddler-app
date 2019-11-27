@@ -44,7 +44,7 @@ export default class Task extends React.Component {
         </TouchableHighlight>
 
         <TouchableHighlight
-          onPress={() => { this.props.navigation.navigate('NewTask'); }}
+          onPress={() => { this.props.navigation.navigate('NewTask', { listId: this.props.navigation.state.params.listId }); }}
         >
           <NewTaskButton />
         </TouchableHighlight>

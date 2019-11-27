@@ -3,13 +3,13 @@ import { Button, View, TextInput } from 'react-native';
 import { Formik } from 'formik';
 import data from '../../../services/dataImporter';
 
-async function test(values) {
+async function test(values, listid) {
   const newTask = {
     id: 11,
     name: values.title,
     description: values.description,
     isFinished: true,
-    listId: 1
+    listId: listid
   }
 
   data.tasks.push(newTask);
@@ -17,10 +17,10 @@ async function test(values) {
   await alert('Created new task!');
 }
 
-const NewTaskInput = () => (
+const NewTaskInput = ({ listId }) => (
   <Formik
     initialValues={{ title: 'Title', description: 'https://i.imgur.com/B5QGgs9.jpg' }}
-    onSubmit={(values) => test(values)}
+    onSubmit={(values) => test(values, listId)}
   >
     {({
       handleChange, handleBlur, handleSubmit, values
