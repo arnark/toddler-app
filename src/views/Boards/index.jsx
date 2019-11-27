@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TouchableHighlight, ScrollView } from 'react-native';
 import NewBoardButton from '../../components/Boards/NewBoardButton';
 import BoardList from '../../components/Boards/BoardList';
-import * as dataService from '../../services/dataImporter';
+import * as boardService from '../../services/boardService';
 import styles from './styles';
 
 
@@ -38,7 +37,7 @@ export default class Boards extends React.Component {
         >
           <ScrollView style={styles.mainContent}>
             <BoardList
-              boards={dataService.getAllBoards()}
+              boards={boardService.getAllBoards()}
               navigation={this.props.navigation}
             />
           </ScrollView>

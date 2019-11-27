@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableHighlight, ScrollView } from 'react-native';
 import NewTaskButton from '../../components/Task/NewTaskButton';
 import TaskList from '../../components/Task/TaskList';
-import * as dataService from '../../services/dataImporter';
+import * as taskService from '../../services/taskService';
 import styles from './styles';
 
 
@@ -37,7 +37,7 @@ export default class Task extends React.Component {
         >
           <ScrollView style={styles.mainContent}>
             <TaskList tasks={
-              dataService.getTasksByListId(this.props.navigation.state.params.listId)
+              taskService.getTasksByListId(this.props.navigation.state.params.listId)
              }
             />
           </ScrollView>
