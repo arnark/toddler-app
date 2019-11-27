@@ -19,7 +19,7 @@ const TaskList = ({ navigation }) => (
     </TouchableHighlight>
 
     <TouchableHighlight
-      onPress={() => { navigation.navigate('NewTaskList'); }}
+      onPress={() => { navigation.replace('NewTaskList'); }}
     >
       <NewBoardButton />
     </TouchableHighlight>

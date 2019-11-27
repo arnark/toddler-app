@@ -19,7 +19,7 @@ const Task = ({ navigation }) => (
     </TouchableHighlight>
 
     <TouchableHighlight
-      onPress={() => { navigation.navigate('NewTask'); }}
+      onPress={() => { navigation.replace('NewTask'); }}
     >
       <NewTaskButton />
     </TouchableHighlight>
