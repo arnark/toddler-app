@@ -7,7 +7,9 @@ async function test(values) {
   const newTask = {
     id: 11,
     name: values.title,
-    description: values.description
+    description: values.description,
+    isFinished: true,
+    listId: 1
   }
 
   data.tasks.push(newTask);

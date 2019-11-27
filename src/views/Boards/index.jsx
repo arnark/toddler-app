@@ -7,33 +7,51 @@ import * as dataService from '../../services/dataImporter';
 import styles from './styles';
 
 
-const Boards = ({ navigation }) => (
+export default class Boards extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    this.t = setInterval(() => {
+      this.setState({ count: this.state.count + 1 });
+    }, 1000);
+  }
 
-  <>
-    <TouchableHighlight
-      style={styles.container}
-      onPress={() => { navigation.replace('TaskList', { boardId: 1 }); }}
-    >
-      <ScrollView style={styles.mainContent}>
+  componentDidMount() {
+    const { navigation } = this.props;
 
-        <BoardList
-          boards={dataService.getAllBoards()}
-        />
-      </ScrollView>
-    </TouchableHighlight>
+    this.focusListener = navigation.addListener('didFocus', () => {
+      this.setState({ count: 0 });
+    });
+}
 
-    <TouchableHighlight
-      onPress={() => { navigation.replace('NewBoard'); }}
-    >
-      <NewBoardButton />
-    </TouchableHighlight>
-  </>
-);
+  componentWillUnmount() {
+  // Remove the event listener before removing the screen from the stack
+    this.focusListener.remove();
+    clearTimeout(this.t);
+  }
 
-Boards.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <>
+        <TouchableHighlight
+          style={styles.container}
+          onPress={() => { this.props.navigation.navigate('TaskList', { boardId: 1 }); }}
+        >
+          <ScrollView style={styles.mainContent}>
 
-export default Boards;
+            <BoardList
+              boards={dataService.getAllBoards()}
+            />
+          </ScrollView>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          onPress={() => { this.props.navigation.navigate('NewBoard'); }}
+        >
+          <NewBoardButton />
+        </TouchableHighlight>
+      </>
+    );
+  }
+}

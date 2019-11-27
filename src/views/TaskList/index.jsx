@@ -6,31 +6,51 @@ import TaskListComponent from '../../components/Tasks/TaskList';
 import * as dataService from '../../services/dataImporter';
 import styles from './styles';
 
+export default class Boards extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    this.t = setInterval(() => {
+      this.setState({ count: this.state.count + 1 });
+    }, 1000);
+  }
 
-const TaskList = ({ navigation }) => (
-  <>
-    <TouchableHighlight
-      style={styles.container}
-      onPress={() => { navigation.replace('Task'); }}
-    >
-      <ScrollView style={styles.mainContent}>
-        <TaskListComponent lists={dataService.getTaskListsByBoardId(1)} />
-      </ScrollView>
-    </TouchableHighlight>
+  componentDidMount() {
+    const { navigation } = this.props;
 
-    <TouchableHighlight
-      onPress={() => { navigation.replace('NewTaskList'); }}
-    >
-      <NewBoardButton />
-    </TouchableHighlight>
+    this.focusListener = navigation.addListener('didFocus', () => {
+      this.setState({ count: 0 });
+    });
+}
 
-  </>
-);
+  componentWillUnmount() {
+  // Remove the event listener before removing the screen from the stack
+    this.focusListener.remove();
+    clearTimeout(this.t);
+  }
 
-TaskList.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <>
+        <TouchableHighlight
+          style={styles.container}
+          onPress={() => { this.props.navigation.navigate('Task', { listId: 1 }); } }
+        >
+          <ScrollView style={styles.mainContent}>
+            <TaskListComponent lists={
+              dataService.getTaskListsByBoardId(this.props.navigation.state.params.boardId)
+            }
+          />
+          </ScrollView>
+        </TouchableHighlight>
 
-export default TaskList;
+        <TouchableHighlight
+          onPress={() => { this.props.navigation.navigate('NewTaskList'); }}
+        >
+          <NewBoardButton />
+        </TouchableHighlight>
+      </>
+    );
+  }
+}

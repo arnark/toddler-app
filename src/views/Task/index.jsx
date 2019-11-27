@@ -7,29 +7,50 @@ import * as dataService from '../../services/dataImporter';
 import styles from './styles';
 
 
-const Task = ({ navigation }) => (
-  <>
-    <TouchableHighlight
-      style={styles.container}
-    >
-      <ScrollView style={styles.mainContent}>
-        <TaskList tasks={dataService.getTasksByListId(1)} />
-      </ScrollView>
-    </TouchableHighlight>
+export default class Task extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+    this.t = setInterval(() => {
+      this.setState({ count: this.state.count + 1 });
+    }, 1000);
+  }
 
-    <TouchableHighlight
-      onPress={() => { navigation.replace('NewTask'); }}
-    >
-      <NewTaskButton />
-    </TouchableHighlight>
+  componentDidMount() {
+    const { navigation } = this.props;
 
-  </>
-);
+    this.focusListener = navigation.addListener('didFocus', () => {
+      this.setState({ count: 0 });
+    });
+}
 
-Task.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
+  componentWillUnmount() {
+  // Remove the event listener before removing the screen from the stack
+    this.focusListener.remove();
+    clearTimeout(this.t);
+  }
 
-export default Task;
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <>
+        <TouchableHighlight
+          style={styles.container}
+        >
+          <ScrollView style={styles.mainContent}>
+            <TaskList tasks={
+              dataService.getTasksByListId(this.props.navigation.state.params.listId)
+             }
+            />
+          </ScrollView>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          onPress={() => { this.props.navigation.navigate('NewTask'); }}
+        >
+          <NewTaskButton />
+        </TouchableHighlight>
+      </>
+    );
+  }
+}

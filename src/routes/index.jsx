@@ -28,35 +28,35 @@ export default createAppContainer(createStackNavigator({
     screen: TaskList,
     navigationOptions: ({ navigation }) => ({
       title: 'Task List',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Boards'); }} title="Boards" tintColor="#ffffff" backTitleVisible />
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Boards" tintColor="#ffffff" backTitleVisible />
     }),
   },
   Task: {
     screen: Task,
     navigationOptions: ({ navigation }) => ({
       title: 'Task',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task Lists" tintColor="#ffffff" backTitleVisible />
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task Lists" tintColor="#ffffff" backTitleVisible />
     })
   },
   NewBoard: {
     screen: NewBoard,
     navigationOptions: ({ navigation }) => ({
       title: 'New Board',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Boards'); }} title="Boards" tintColor="#ffffff" backTitleVisible />
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Boards" tintColor="#ffffff" backTitleVisible />
     })
   },
   NewTask: {
     screen: NewTask,
     navigationOptions: ({ navigation }) => ({
       title: 'New Task',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Task'); }} title="Task" tintColor="#ffffff" backTitleVisible />
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task" tintColor="#ffffff" backTitleVisible />
     })
   },
   NewTaskList: {
     screen: NewTaskList,
     navigationOptions: ({ navigation }) => ({
       title: 'New Task List',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task List" fontWeight="bold" tintColor="#ffffff" backTitleVisible />
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task List" tintColor="#ffffff" backTitleVisible />
     }),
   }
 },
@@ -70,5 +70,6 @@ export default createAppContainer(createStackNavigator({
     headerTitleStyle: {
       fontWeight: 'bold',
     },
+    initialRouteName: 'Main',
   },
 }));
