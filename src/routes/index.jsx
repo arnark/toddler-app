@@ -9,6 +9,7 @@ import NewBoard from '../views/NewBoard';
 import NewTask from '../views/NewTask';
 import NewTaskList from '../views/NewTaskList';
 
+
 export default createAppContainer(createStackNavigator({
   Boards: {
     screen: Boards,
@@ -21,7 +22,7 @@ export default createAppContainer(createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'Task List',
       headerLeft: <HeaderBackButton onPress={() => { navigation.replace('Boards'); }} title="Boards" tintColor="#ffffff" backTitleVisible />
-    })
+    }),
   },
   Task: {
     screen: Task,
@@ -48,8 +49,8 @@ export default createAppContainer(createStackNavigator({
     screen: NewTaskList,
     navigationOptions: ({ navigation }) => ({
       title: 'New Task List',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task List" tintColor="#ffffff" backTitleVisible />
-    })
+      headerLeft: <HeaderBackButton onPress={() => { navigation.replace('TaskList'); }} title="Task List" fontWeight="bold" tintColor="#ffffff" backTitleVisible />
+    }),
   }
 },
 {
