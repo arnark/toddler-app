@@ -15,7 +15,7 @@ async function test(values) {
   await alert('Created new task!');
 }
 
-const MyReactNativeForm = () => (
+const NewTaskInput = () => (
   <Formik
     initialValues={{ title: 'Title', description: 'https://i.imgur.com/B5QGgs9.jpg' }}
     onSubmit={(values) => test(values)}
@@ -40,4 +40,4 @@ const MyReactNativeForm = () => (
   </Formik>
 );
 
-export default MyReactNativeForm;
+export default NewTaskInput;
