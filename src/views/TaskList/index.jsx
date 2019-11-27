@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TouchableHighlight, ScrollView } from 'react-native';
 import NewBoardButton from '../../components/Tasks/NewTaskListButton';
 import TaskListComponent from '../../components/Tasks/TaskList';
@@ -24,7 +23,6 @@ export default class Boards extends React.Component {
 }
 
   componentWillUnmount() {
-  // Remove the event listener before removing the screen from the stack
     this.focusListener.remove();
     clearTimeout(this.t);
   }
@@ -35,13 +33,12 @@ export default class Boards extends React.Component {
       <>
         <TouchableHighlight
           style={styles.container}
-          onPress={() => { this.props.navigation.navigate('Task', { listId: 1 }); } }
         >
           <ScrollView style={styles.mainContent}>
-            <TaskListComponent lists={
-              dataService.getTaskListsByBoardId(this.props.navigation.state.params.boardId)
-            }
-          />
+            <TaskListComponent
+              lists={dataService.getTaskListsByBoardId(this.props.navigation.state.params.boardId)}
+              navigation={this.props.navigation}
+            />
           </ScrollView>
         </TouchableHighlight>
 

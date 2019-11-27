@@ -1,10 +1,12 @@
 import React from 'react';
+import { withNavigation } from 'react-navigation';
 import { Text, Image, TouchableHighlight } from 'react-native';
 import styles from './styles';
 
-const Thumbnail = ({ thumbnailPhoto, name }) => (
+const Thumbnail = ({ id, name, thumbnailPhoto, navigation }) => (
   <TouchableHighlight
     style={styles.thumbnailContainer}
+    onPress={() => { navigation.navigate('TaskList', { boardId: id }); }}
   >
     <>
       <Image
@@ -17,4 +19,4 @@ const Thumbnail = ({ thumbnailPhoto, name }) => (
   </TouchableHighlight>
 );
 
-export default Thumbnail;
+export default withNavigation(Thumbnail);

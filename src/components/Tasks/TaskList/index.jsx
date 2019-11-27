@@ -2,15 +2,18 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import ListThumbnail from '../Thumbnail'
 
-const BoardsList = ({ lists }) => (
+const BoardsList = ({ lists, navigation }) => (
   <View>
     <FlatList
       numColumns={2}
       data={lists}
-      renderItem={({ item: { name } }) => {
+      renderItem={({ item: { id, name, color } }) => {
         return (
           <ListThumbnail
+            id={id}
             name={name}
+            color={color}
+            navigation={navigation}
           />
         )
       }}

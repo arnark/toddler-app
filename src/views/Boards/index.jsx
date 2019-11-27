@@ -25,7 +25,6 @@ export default class Boards extends React.Component {
 }
 
   componentWillUnmount() {
-  // Remove the event listener before removing the screen from the stack
     this.focusListener.remove();
     clearTimeout(this.t);
   }
@@ -36,12 +35,11 @@ export default class Boards extends React.Component {
       <>
         <TouchableHighlight
           style={styles.container}
-          onPress={() => { this.props.navigation.navigate('TaskList', { boardId: 1 }); }}
         >
           <ScrollView style={styles.mainContent}>
-
             <BoardList
               boards={dataService.getAllBoards()}
+              navigation={this.props.navigation}
             />
           </ScrollView>
         </TouchableHighlight>
