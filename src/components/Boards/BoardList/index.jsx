@@ -7,11 +7,9 @@ const BoardsList = ({ boards }) => (
     <FlatList
       numColumns={2}
       data={boards}
-      renderItem={({ item: { thumbnailPhoto, name } }) => {
-        return (
-          <BoardsThumbnail thumbnailPhoto={thumbnailPhoto} name={name} />
-        )
-      }}
+      renderItem={({ item: { thumbnailPhoto, name } }) => (
+        <BoardsThumbnail thumbnailPhoto={thumbnailPhoto} name={name} />
+      )}
       keyExtractor={(board) => board.id}
     />
   </View>

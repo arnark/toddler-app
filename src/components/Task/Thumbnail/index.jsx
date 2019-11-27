@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 import styles from './styles';
 
-const Thumbnail = ({ name, description}) => (
+const Thumbnail = ({ name, description }) => (
 
   <TouchableHighlight
     style={styles.thumbnailContainer}

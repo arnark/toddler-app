@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { TouchableHighlight, ScrollView } from 'react-native';
 import NewBoardButton from '../../components/Tasks/NewTaskListButton';
 import TaskListComponent from '../../components/Tasks/TaskList';
-import data from '../../resources/data.json';
+import data from '../../services/dataImporter';
 import styles from './styles';
+
 
 const TaskList = ({ navigation }) => (
   <>
