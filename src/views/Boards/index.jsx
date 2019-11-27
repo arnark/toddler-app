@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableHighlight, ScrollView } from 'react-native';
 import NewBoardButton from '../../components/Boards/NewBoardButton';
 import BoardList from '../../components/Boards/BoardList';
-import data from '../../services/dataImporter';
+import * as dataService from '../../services/dataImporter';
 import styles from './styles';
 
 
@@ -12,12 +12,12 @@ const Boards = ({ navigation }) => (
   <>
     <TouchableHighlight
       style={styles.container}
-      onPress={() => { navigation.replace('TaskList'); }}
+      onPress={() => { navigation.replace('TaskList', { boardId: 1 }); }}
     >
       <ScrollView style={styles.mainContent}>
 
         <BoardList
-          boards={data.boards}
+          boards={dataService.getAllBoards()}
         />
       </ScrollView>
     </TouchableHighlight>
