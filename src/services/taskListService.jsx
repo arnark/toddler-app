@@ -27,3 +27,24 @@ export function createNewTaskList(taskListInput, boardid) {
   // Push new taskList to the main array
   data.lists.push(newTaskList);
 }
+
+export function deleteTaskList(listId) {
+  // Find taskList in main array and remove
+  for (let i = 0; i < data.lists.length; i += 1) {
+    if (data.lists[i].id === listId) {
+      data.lists.splice(i, 1);
+      break;
+    }
+  }
+  // Find all tasks that belonged to the list
+  const childTasksIndex = [];
+  for (let i = 0; i < data.tasks.length; i += 1) {
+    if (data.tasks[i] === listId) {
+      childTasksIndex.push(i);
+    }
+  }
+  // Remove the childTasks
+  childTasksIndex.forEach((index) => {
+    data.tasks.splice(index);
+  });
+}

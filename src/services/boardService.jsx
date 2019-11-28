@@ -34,19 +34,30 @@ export function deleteBoard(boardId) {
     }
   }
   // Find all task lists that belonged to the board
-  const childTaskLists = []
+  const childTasks = []
+  const childListsIndex = []
   for (let i = 0; i < data.lists.length; i += 1) {
     if (data.lists[i].boardId === boardId) {
-      childTaskLists.push(data.lists[i].id);
-      data.lists.splice(i, 1);
+      childTasks.push(data.lists[i].id);
+      childListsIndex.push(i)
     }
   }
   // Find all tasks that belonged to the lists
+  const childTasksIndex = [];
   for (let i = 0; i < data.tasks.length; i += 1) {
-    for (let j = 0; j < childTaskLists.length; j += 1) {
-      if (childTaskLists[j] === data.tasks[i].listId) {
-        data.tasks.splice(i, 1);
+    for (let j = 0; j < childTasks.length; j += 1) {
+      if (childTasks[j] === data.tasks[i].listId) {
+        childTasksIndex.push(i);
       }
     }
   }
+  // Remove the childLists
+  childListsIndex.forEach((index) => {
+    data.lists.splice(index);
+  });
+
+  // Remove the childTasks
+  childTasksIndex.forEach((index) => {
+    data.tasks.splice(index);
+  });
 }

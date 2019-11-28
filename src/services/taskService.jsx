@@ -28,3 +28,13 @@ export function createNewTask(taskInput, listid) {
   // Push new task to the main array
   data.tasks.push(newTask);
 }
+
+export function deleteTask(taskId) {
+  // Find task in main array and remove
+  for (let i = 0; i < data.tasks.length; i += 1) {
+    if (data.tasks[i].id === taskId) {
+      data.tasks.splice(i, 1);
+      break;
+    }
+  }
+}

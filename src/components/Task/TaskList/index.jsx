@@ -7,11 +7,12 @@ const TaskList = ({ tasks }) => (
     <FlatList
       numColumns={2}
       data={tasks}
-      renderItem={({ item: { name, description } }) => {
+      renderItem={({ item: { id, name, description } }) => {
         return (
           <ListThumbnail
             name={name}
             description={description}
+            id={id}
           />
         )
       }}

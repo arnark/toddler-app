@@ -1,20 +1,19 @@
 import React from 'react';
 import {
-  Text, Image, TouchableHighlight, Alert, TouchableOpacity, Button, View
+  Text, Image, Alert, TouchableOpacity
 } from 'react-native';
 import styles from './styles';
 import * as boardService from '../../../services/boardService';
 
 
-function doAlert(boardId) {
+function editAlert(boardId) {
   Alert.alert(
     'Board Settings',
     '',
     [
-      { text: 'Edit board', onPress: () => console.log('Ask me later pressed') },
+      { text: 'Edit board', onPress: () => console.log('Edit board pressed') },
       {
         text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
         style: 'cancel',
       },
       {
@@ -28,11 +27,10 @@ function doAlert(boardId) {
 }
 
 const Thumbnail = ({ id, name, thumbnailPhoto, navigation }) => (
-
   <TouchableOpacity
     style={styles.thumbnailContainer}
     onPress={() => { navigation.navigate('TaskList', { boardId: id }); }}
-    onLongPress={() => { doAlert(id); }}
+    onLongPress={() => { editAlert(id); }}
   >
 
     <>
@@ -44,7 +42,6 @@ const Thumbnail = ({ id, name, thumbnailPhoto, navigation }) => (
       <Text style={styles.thumbnailText}>{name}</Text>
     </>
   </TouchableOpacity>
-
 );
 
 export default Thumbnail;
