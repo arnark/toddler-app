@@ -5,13 +5,14 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     width: 190,
-    height: 190,
+    height: 40,
     margin: 9,
     borderWidth: 1,
     borderColor: '#000',
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: 'white'
   },
   thumbnailText: {
-    fontSize: 16
+    fontSize: 30
   }
 });

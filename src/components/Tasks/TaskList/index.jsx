@@ -5,7 +5,7 @@ import ListThumbnail from '../Thumbnail'
 const BoardsList = ({ lists, navigation }) => (
   <View>
     <FlatList
-      numColumns={2}
+      numColumns={1}
       data={lists}
       renderItem={({ item: { id, name, color } }) => {
         return (

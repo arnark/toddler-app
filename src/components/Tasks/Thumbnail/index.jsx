@@ -24,6 +24,7 @@ function editAlert(listId) {
   );
 }
 
+
 const Thumbnail = ({ id, name, color, navigation }) => (
   <TouchableHighlight
     style={styles.thumbnailContainer}

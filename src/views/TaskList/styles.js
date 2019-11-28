@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { lightGrey } from '../../styles/colors'
 
 export default StyleSheet.create({
   container: {
@@ -7,6 +8,6 @@ export default StyleSheet.create({
   },
   mainContent: {
     flex: 8,
-    backgroundColor: '#fff'
+    backgroundColor: lightGrey
   }
 });
