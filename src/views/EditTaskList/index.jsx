@@ -1,5 +1,5 @@
 import React from 'react';
-import EditBoardInput from '../../components/Boards/EditBoardInput';
+import EditTaskListInput from '../../components/Tasks/EditTaskListInput';
 
 export default class NewBoard extends React.Component {
   constructor(props) {
@@ -18,10 +18,10 @@ export default class NewBoard extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <EditBoardInput
-        boardId={this.props.navigation.state.params.boardId}
-        boardTitle={this.props.navigation.state.params.boardTitle}
-        boardThumbnailPhoto={this.props.navigation.state.params.boardThumbnailPhoto}
+      <EditTaskListInput
+        taskListId={this.props.navigation.state.params.taskListId}
+        taskListTitle={this.props.navigation.state.params.taskListTitle}
+        taskListColor={this.props.navigation.state.params.taskListColor}
       />
     );
   }

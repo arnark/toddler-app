@@ -4,19 +4,24 @@ import styles from './styles';
 import * as taskListService from '../../../services/taskListService';
 
 
-function editAlert(listId) {
+function editAlert(taskListId, taskListTitle, taskListColor, navigation) {
   Alert.alert(
     'Board Settings',
     '',
     [
-      { text: 'Edit board', onPress: () => console.log('Edit board pressed') },
+      {
+        text: 'Edit task list',
+        onPress: () => navigation.navigate('EditTaskList', {
+          taskListId, taskListTitle, taskListColor, navigation
+        })
+      },
       {
         text: 'Cancel',
         style: 'cancel',
       },
       {
         text: 'Delete board',
-        onPress: () => taskListService.deleteTaskList(listId),
+        onPress: () => taskListService.deleteTaskList(taskListId),
         style: 'destructive',
       },
     ],
@@ -29,7 +34,7 @@ const Thumbnail = ({ id, name, color, navigation }) => (
   <TouchableHighlight
     style={styles.thumbnailContainer}
     onPress={() => { navigation.navigate('Task', { listId: id }); }}
-    onLongPress={() => { editAlert(id); }}
+    onLongPress={() => { editAlert(id, name, color, navigation); }}
   >
     <Text style={styles.thumbnailText}>{name}</Text>
   </TouchableHighlight>

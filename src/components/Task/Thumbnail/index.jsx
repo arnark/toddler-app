@@ -3,18 +3,23 @@ import { Text, TouchableHighlight, Alert } from 'react-native';
 import styles from './styles';
 import * as taskService from '../../../services/taskService';
 
-function editAlert(taskId) {
+function editAlert(taskId, taskTitle, taskDescription, taskIsFinished, navigation) {
   Alert.alert(
-    'Board Settings',
+    'Task Settings',
     '',
     [
-      { text: 'Edit board', onPress: () => console.log('Edit board pressed') },
+      {
+        text: 'Edit task',
+        onPress: () => navigation.navigate('EditTask', {
+          taskId, taskTitle, taskDescription, taskIsFinished, navigation
+        })
+      },
       {
         text: 'Cancel',
         style: 'cancel',
       },
       {
-        text: 'Delete board',
+        text: 'Delete task',
         onPress: () => taskService.deleteTask(taskId),
         style: 'destructive',
       },
@@ -23,11 +28,11 @@ function editAlert(taskId) {
   );
 }
 
-const Thumbnail = ({ id, name, description }) => (
+const Thumbnail = ({ id, name, description, isFinished, navigation }) => (
 
   <TouchableHighlight
     style={styles.thumbnailContainer}
-    onLongPress={() => { editAlert(id); }}
+    onLongPress={() => { editAlert(id, name, description, isFinished, navigation); }}
   >
     <>
       <Text style={styles.thumbnailText}>{name}</Text>

@@ -48,3 +48,14 @@ export function deleteTaskList(listId) {
     data.tasks.splice(index);
   });
 }
+
+export function editTaskList(taskListId, taskListTitle, taskListColor) {
+  for (let i = 0; i < data.lists.length; i += 1) {
+    if (data.lists[i].id === taskListId) {
+      data.lists[i].name = taskListTitle
+      data.lists[i].color = ''
+      data.lists[i].color = taskListColor
+      break;
+    }
+  }
+}

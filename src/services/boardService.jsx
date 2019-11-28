@@ -42,8 +42,19 @@ export function deleteBoard(boardId) {
           data.tasks.splice(j, 1);
         }
       }
+      // Delete the taskList
       data.lists.splice(i, 1);
     }
   }
+}
 
+export function editBoard(boardId, boardTitle, boardThumbnailPhoto) {
+  for (let i = 0; i < data.boards.length; i += 1) {
+    if (data.boards[i].id === boardId) {
+      data.boards[i].name = boardTitle
+      data.boards[i].thumbnailPhoto = ''
+      data.boards[i].thumbnailPhoto = boardThumbnailPhoto
+      break;
+    }
+  }
 }

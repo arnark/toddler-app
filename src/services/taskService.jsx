@@ -38,3 +38,14 @@ export function deleteTask(taskId) {
     }
   }
 }
+
+export function editTask(taskId, taskTitle, taskDescription, taskIsFinished) {
+  for (let i = 0; i < data.tasks.length; i += 1) {
+    if (data.tasks[i].id === taskId) {
+      data.tasks[i].name = taskTitle
+      data.tasks[i].description = taskDescription
+      data.tasks[i].taskIsFinished = taskIsFinished
+      break;
+    }
+  }
+}

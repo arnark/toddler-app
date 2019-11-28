@@ -36,9 +36,11 @@ export default class Task extends React.Component {
           style={styles.container}
         >
           <ScrollView style={styles.mainContent}>
-            <TaskList tasks={
+            <TaskList
+              tasks={
               taskService.getTasksByListId(this.props.navigation.state.params.listId)
              }
+              navigation={this.props.navigation}
             />
           </ScrollView>
         </TouchableHighlight>

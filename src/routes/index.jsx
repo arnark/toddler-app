@@ -8,6 +8,9 @@ import Task from '../views/Task';
 import NewBoard from '../views/NewBoard';
 import NewTask from '../views/NewTask';
 import NewTaskList from '../views/NewTaskList';
+import EditBoard from '../views/EditBoard'
+import EditTaskList from '../views/EditTaskList'
+import EditTask from '../views/EditTask'
 import Main from '../views/Main';
 
 
@@ -57,6 +60,27 @@ export default createAppContainer(createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'New Task List',
       headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task List" tintColor="#ffffff" backTitleVisible />
+    }),
+  },
+  EditBoard: {
+    screen: EditBoard,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Edit Board',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Boards" tintColor="#ffffff" backTitleVisible />
+    }),
+  },
+  EditTaskList: {
+    screen: EditTaskList,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Edit Task List',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task List" tintColor="#ffffff" backTitleVisible />
+    }),
+  },
+  EditTask: {
+    screen: EditTask,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Edit Task',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Tasks" tintColor="#ffffff" backTitleVisible />
     }),
   }
 },

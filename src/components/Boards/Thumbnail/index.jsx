@@ -6,12 +6,17 @@ import styles from './styles';
 import * as boardService from '../../../services/boardService';
 
 
-function editAlert(boardId) {
+function editAlert(boardId, boardTitle, boardThumbnailPhoto, navigation) {
   Alert.alert(
     'Board Settings',
     '',
     [
-      { text: 'Edit board', onPress: () => console.log('Edit board pressed') },
+      {
+        text: 'Edit board',
+        onPress: () => navigation.navigate('EditBoard', {
+          boardId, boardTitle, boardThumbnailPhoto, navigation
+        })
+      },
       {
         text: 'Cancel',
         style: 'cancel',
@@ -30,7 +35,7 @@ const Thumbnail = ({ id, name, thumbnailPhoto, navigation }) => (
   <TouchableOpacity
     style={styles.thumbnailContainer}
     onPress={() => { navigation.navigate('TaskList', { boardId: id }); }}
-    onLongPress={() => { editAlert(id); }}
+    onLongPress={() => { editAlert(id, name, thumbnailPhoto, navigation); }}
   >
 
     <>
