@@ -5,7 +5,7 @@ import ListThumbnail from '../Thumbnail'
 const TaskList = ({ tasks }) => (
   <View>
     <FlatList
-      numColumns={2}
+      numColumns={1}
       data={tasks}
       renderItem={({ item: { name, description } }) => {
         return (

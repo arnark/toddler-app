@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableHighlight, ScrollView } from 'react-native';
+import { TouchableHighlight, ScrollView, Icon } from 'react-native';
 import NewBoardButton from '../../components/Tasks/NewTaskListButton';
 import TaskListComponent from '../../components/Tasks/TaskList';
 import * as dataService from '../../services/dataImporter';
