@@ -2,7 +2,9 @@ import data from './dataImporter';
 
 
 function getNextId() {
-  return data.tasks[data.tasks.length - 1].id + 1;
+  if (data.tasks.length > 0) {
+    return data.tasks[data.tasks.length - 1].id + 1;
+  } return 0;
 }
 
 export function getTasksByListId(listId) {

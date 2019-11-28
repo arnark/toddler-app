@@ -18,6 +18,15 @@ export default StyleSheet.create({
   image: {
     width: 180,
     height: 150,
-    margin: 5
+    margin: 5,
+    position: 'relative'
+  },
+  editButton: {
+    position: 'absolute',
+    right: 5,
+    top: 0,
+    height: 50,
+    width: 50,
+    zIndex: 1
   }
 });

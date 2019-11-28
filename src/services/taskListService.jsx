@@ -2,7 +2,9 @@ import data from './dataImporter';
 
 
 function getNextId() {
-  return data.lists[data.lists.length - 1].id + 1;
+  if (data.lists.length > 0) {
+    return data.lists[data.lists.length - 1].id + 1;
+  } return 0;
 }
 
 export function getTaskListsByBoardId(boardId) {
