@@ -18,7 +18,9 @@ export default class NewBoard extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <NewTaskInput />
+      <NewTaskInput
+        listId={this.props.navigation.state.params.listId}
+      />
     );
   }
 }

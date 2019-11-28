@@ -1,25 +1,13 @@
 import React from 'react';
 import { Button, View, TextInput } from 'react-native';
 import { Formik } from 'formik';
-import data from '../../../services/dataImporter';
+import * as taskListService from '../../../services/taskListService';
 
-async function test(values) {
-  const newTaskList = {
-    id: 11,
-    name: values.title,
-    color: '#ffffff',
-    boardId: 1
-  }
 
-  data.lists.push(newTaskList);
-
-  await alert('Created new task list!');
-}
-
-const NewTaskListInput = () => (
+const NewTaskListInput = ({ boardId }) => (
   <Formik
     initialValues={{ title: 'Title' }}
-    onSubmit={(values) => test(values)}
+    onSubmit={(values) => taskListService.createNewTaskList(values, boardId)}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

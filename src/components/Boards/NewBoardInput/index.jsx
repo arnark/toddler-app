@@ -1,24 +1,13 @@
 import React from 'react';
 import { Button, View, TextInput } from 'react-native';
 import { Formik } from 'formik';
-import data from '../../../services/dataImporter';
+import * as boardService from '../../../services/boardService';
 
-async function test(values) {
-  const newTaskList = {
-    id: 11,
-    name: values.title,
-    thumbnailPhoto: values.thumbnailPhoto
-  }
-
-  data.boards.push(newTaskList);
-
-  await alert('Created new board!');
-}
 
 const NewBoardInput = () => (
   <Formik
     initialValues={{ title: 'Title', thumbnailPhoto: 'https://i.kym-cdn.com/photos/images/newsfeed/001/090/170/192.png' }}
-    onSubmit={(values) => test(values)}
+    onSubmit={(values) => boardService.createNewBoard(values)}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

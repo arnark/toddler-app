@@ -2,8 +2,9 @@ import React from 'react';
 import { TouchableHighlight, ScrollView, Icon } from 'react-native';
 import NewBoardButton from '../../components/Tasks/NewTaskListButton';
 import TaskListComponent from '../../components/Tasks/TaskList';
-import * as dataService from '../../services/dataImporter';
+import * as taskListService from '../../services/taskListService';
 import styles from './styles';
+
 
 export default class Boards extends React.Component {
   constructor(props) {
@@ -36,14 +37,16 @@ export default class Boards extends React.Component {
         >
           <ScrollView style={styles.mainContent}>
             <TaskListComponent
-              lists={dataService.getTaskListsByBoardId(this.props.navigation.state.params.boardId)}
+              lists={
+                taskListService.getTaskListsByBoardId(this.props.navigation.state.params.boardId)
+              }
               navigation={this.props.navigation}
             />
           </ScrollView>
         </TouchableHighlight>
 
         <TouchableHighlight
-          onPress={() => { this.props.navigation.navigate('NewTaskList'); }}
+          onPress={() => { this.props.navigation.navigate('NewTaskList', { boardId: this.props.navigation.state.params.boardId }); }}
         >
           <NewBoardButton />
         </TouchableHighlight>

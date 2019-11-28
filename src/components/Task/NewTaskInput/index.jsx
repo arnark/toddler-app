@@ -1,26 +1,13 @@
 import React from 'react';
 import { Button, View, TextInput } from 'react-native';
 import { Formik } from 'formik';
-import data from '../../../services/dataImporter';
+import * as taskService from '../../../services/taskService';
 
-async function test(values) {
-  const newTask = {
-    id: 11,
-    name: values.title,
-    description: values.description,
-    isFinished: true,
-    listId: 1
-  }
 
-  data.tasks.push(newTask);
-
-  await alert('Created new task!');
-}
-
-const NewTaskInput = () => (
+const NewTaskInput = ({ listId }) => (
   <Formik
     initialValues={{ title: 'Title', description: 'https://i.imgur.com/B5QGgs9.jpg' }}
-    onSubmit={(values) => test(values)}
+    onSubmit={(values) => taskService.createNewTask(values, listId)}
   >
     {({
       handleChange, handleBlur, handleSubmit, values
