@@ -12,7 +12,7 @@ export default class Boards extends React.Component {
     this.state = { count: 0 };
     this.t = setInterval(() => {
       this.setState({ count: this.state.count + 1 });
-    }, 100);
+    }, 1000);
   }
 
   componentDidMount() {

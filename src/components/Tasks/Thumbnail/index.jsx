@@ -6,7 +6,7 @@ import * as taskListService from '../../../services/taskListService';
 
 function editAlert(taskListId, taskListTitle, taskListColor, navigation) {
   Alert.alert(
-    'Board Settings',
+    'Task List Settings',
     '',
     [
       {

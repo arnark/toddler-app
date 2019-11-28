@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, View, TextInput } from 'react-native';
+import {
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+} from 'react-native';
 import { Formik } from 'formik';
 import * as taskService from '../../../services/taskService';
+import styles from '../../../styles/styles'
 
 
 const EditTaskInput = ({ taskId, taskTitle, taskDescription, taskIsFinished }) => (
@@ -16,23 +19,30 @@ const EditTaskInput = ({ taskId, taskTitle, taskDescription, taskIsFinished }) =
     {({
       handleChange, handleBlur, handleSubmit, values
     }) => (
-      <View>
-        <TextInput
-          onChangeText={handleChange('taskTitle')}
-          onBlur={handleBlur('taskTitle')}
-          value={values.taskTitle}
-        />
-        <TextInput
-          onChangeText={handleChange('taskDescription')}
-          onBlur={handleBlur('taskDescription')}
-          value={values.taskDescription}
-        />
-        <TextInput
-          onChangeText={handleChange('taskIsFinished')}
-          onBlur={handleBlur('taskIsFinished')}
-          value={values.taskIsFinished}
-        />
-        <Button onPress={handleSubmit} title="Submit" />
+      <View style={styles.container}>
+        <View style={styles.mainContent}>
+          <Text style={styles.inputFieldLabel}>Task Title</Text>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={handleChange('taskTitle')}
+            onBlur={handleBlur('taskTitle')}
+            value={values.taskTitle}
+          />
+          <Text style={styles.inputFieldLabel}>Task Description</Text>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={handleChange('taskDescription')}
+            onBlur={handleBlur('taskDescription')}
+            value={values.taskDescription}
+          />
+        </View>
+        <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={60}>
+          <TouchableHighlight onPress={handleSubmit}>
+            <View style={styles.submitButton}>
+              <Text style={styles.submitActionText}>Edit Task</Text>
+            </View>
+          </TouchableHighlight>
+        </KeyboardAvoidingView>
       </View>
     )}
   </Formik>

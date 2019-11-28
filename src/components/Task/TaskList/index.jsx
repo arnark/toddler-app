@@ -18,7 +18,7 @@ const TaskList = ({ tasks, navigation }) => (
           />
         )
       }}
-      keyExtractor={(task) => task.id}
+      keyExtractor={(task) => task.id.toString()}
     />
   </View>
 );

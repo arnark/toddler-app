@@ -11,16 +11,9 @@ import NewTaskList from '../views/NewTaskList';
 import EditBoard from '../views/EditBoard'
 import EditTaskList from '../views/EditTaskList'
 import EditTask from '../views/EditTask'
-import Main from '../views/Main';
 
 
 export default createAppContainer(createStackNavigator({
-  Main: {
-    screen: Main,
-    navigationOptions: {
-      title: 'Main',
-    }
-  },
   Boards: {
     screen: Boards,
     navigationOptions: {

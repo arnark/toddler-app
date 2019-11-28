@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, View, TextInput } from 'react-native';
+import {
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+} from 'react-native';
 import { Formik } from 'formik';
 import * as taskListService from '../../../services/taskListService';
+import styles from '../../../styles/styles'
 
 
 const EditTaskListInput = ({ taskListId, taskListTitle, taskListColor }) => (
@@ -16,18 +19,23 @@ const EditTaskListInput = ({ taskListId, taskListTitle, taskListColor }) => (
     {({
       handleChange, handleBlur, handleSubmit, values
     }) => (
-      <View>
-        <TextInput
-          onChangeText={handleChange('taskListTitle')}
-          onBlur={handleBlur('taskListTitle')}
-          value={values.taskListTitle}
-        />
-        <TextInput
-          onChangeText={handleChange('taskListColor')}
-          onBlur={handleBlur('taskListColor')}
-          value={values.taskListColor}
-        />
-        <Button onPress={handleSubmit} title="Submit" />
+      <View style={styles.container}>
+        <View style={styles.mainContent}>
+          <Text style={styles.inputFieldLabel}>Title</Text>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={handleChange('taskListTitle')}
+            onBlur={handleBlur('taskListTitle')}
+            value={values.taskListTitle}
+          />
+        </View>
+        <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={60}>
+          <TouchableHighlight onPress={handleSubmit}>
+            <View style={styles.submitButton}>
+              <Text style={styles.submitActionText}>Edit Task List</Text>
+            </View>
+          </TouchableHighlight>
+        </KeyboardAvoidingView>
       </View>
     )}
   </Formik>

@@ -17,7 +17,7 @@ const BoardsList = ({ lists, navigation }) => (
           />
         )
       }}
-      keyExtractor={(list) => list.id}
+      keyExtractor={(list) => list.id.toString()}
     />
   </View>
 );
