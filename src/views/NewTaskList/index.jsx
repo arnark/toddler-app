@@ -1,5 +1,6 @@
 import React from 'react';
 import NewTaskListInput from '../../components/Tasks/NewTaskListInput';
+import TaskList from '../../components/Task/TaskList';
 
 export default class NewBoard extends React.Component {
   constructor(props) {

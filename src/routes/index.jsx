@@ -18,13 +18,13 @@ export default createAppContainer(createStackNavigator({
   Main: {
     screen: Main,
     navigationOptions: {
-      title: 'Main'
+      title: 'Main',
     }
   },
   Boards: {
     screen: Boards,
     navigationOptions: {
-      title: 'Boards'
+      title: 'Boards',
     }
   },
   TaskList: {
@@ -93,6 +93,8 @@ export default createAppContainer(createStackNavigator({
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold',
+      textAlign: 'center',
+      flex: 1,
     },
     initialRouteName: 'Main',
   },
