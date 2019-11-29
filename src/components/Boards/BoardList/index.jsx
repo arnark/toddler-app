@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import BoardsThumbnail from '../Thumbnail'
-
+import styles from './styles'
 
 const BoardsList = ({ boards, navigation }) => (
-  <View>
+  <View style={styles.marginer}>
     <FlatList
       numColumns={2}
       data={boards}
@@ -16,7 +16,7 @@ const BoardsList = ({ boards, navigation }) => (
           navigation={navigation}
         />
       )}
-      keyExtractor={(board) => board.id}
+      keyExtractor={(board) => board.id.toString()}
     />
   </View>
 );

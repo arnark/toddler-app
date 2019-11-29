@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView, Alert
 } from 'react-native';
 import { Formik } from 'formik';
 import * as taskListService from '../../../services/taskListService';
@@ -9,7 +9,14 @@ import styles from '../../../styles/styles'
 const NewTaskListInput = ({ boardId }) => (
   <Formik
     initialValues={{ title: '' }}
-    onSubmit={(values) => taskListService.createNewTaskList(values, boardId)}
+    onSubmit={async (values) => {
+      const status = await taskListService.createNewTaskList(values, boardId);
+      if (status.status === false) {
+        Alert.alert(status.message);
+      } else {
+        Alert.alert('Task list created successfully!');
+      }
+    }}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

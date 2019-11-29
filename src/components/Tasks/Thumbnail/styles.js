@@ -4,8 +4,8 @@ export default StyleSheet.create({
   thumbnailContainer: {
     display: 'flex',
     alignItems: 'center',
-    width: 190,
-    height: 40,
+    justifyContent: 'center',
+    height: 50,
     margin: 9,
     borderWidth: 1,
     borderColor: '#000',

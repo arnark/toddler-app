@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView, Alert, Picker
 } from 'react-native';
 import { Formik } from 'formik';
+import TaskListPicker from '../TaskListPicker'
 import * as taskService from '../../../services/taskService';
 import styles from '../../../styles/styles'
 
@@ -10,11 +11,16 @@ import styles from '../../../styles/styles'
 const EditTaskInput = ({ taskId, taskTitle, taskDescription, taskIsFinished }) => (
   <Formik
     initialValues={{ taskTitle, taskDescription, taskIsFinished }}
-    onSubmit={
-      (values) => taskService.editTask(
+    onSubmit={async (values) => {
+      const status = await taskService.editTask(
         taskId, values.taskTitle, values.taskDescription, values.taskIsFinished
       )
-    }
+      if (status.status === false) {
+        Alert.alert(status.message);
+      } else {
+        Alert.alert('Task edited successfully!');
+      }
+    }}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

@@ -8,9 +8,10 @@ import Task from '../views/Task';
 import NewBoard from '../views/NewBoard';
 import NewTask from '../views/NewTask';
 import NewTaskList from '../views/NewTaskList';
-import EditBoard from '../views/EditBoard'
-import EditTaskList from '../views/EditTaskList'
-import EditTask from '../views/EditTask'
+import EditBoard from '../views/EditBoard';
+import EditTaskList from '../views/EditTaskList';
+import EditTask from '../views/EditTask';
+import MoveTask from '../views/MoveTask';
 
 
 export default createAppContainer(createStackNavigator({
@@ -23,14 +24,14 @@ export default createAppContainer(createStackNavigator({
   TaskList: {
     screen: TaskList,
     navigationOptions: ({ navigation }) => ({
-      title: 'Task List',
+      title: 'Task Lists',
       headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Boards" tintColor="#ffffff" backTitleVisible />
     }),
   },
   Task: {
     screen: Task,
     navigationOptions: ({ navigation }) => ({
-      title: 'Task',
+      title: 'Tasks',
       headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Task Lists" tintColor="#ffffff" backTitleVisible />
     })
   },
@@ -73,6 +74,13 @@ export default createAppContainer(createStackNavigator({
     screen: EditTask,
     navigationOptions: ({ navigation }) => ({
       title: 'Edit Task',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Tasks" tintColor="#ffffff" backTitleVisible />
+    }),
+  },
+  MoveTask: {
+    screen: MoveTask,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Move Task',
       headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="Tasks" tintColor="#ffffff" backTitleVisible />
     }),
   }

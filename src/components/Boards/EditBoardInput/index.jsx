@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView, Alert
 } from 'react-native';
 import { Formik } from 'formik';
 import * as boardService from '../../../services/boardService';
@@ -10,9 +10,16 @@ import styles from '../../../styles/styles'
 const EditBoardInput = ({ boardId, boardTitle, boardThumbnailPhoto }) => (
   <Formik
     initialValues={{ boardTitle, boardThumbnailPhoto }}
-    onSubmit={
-      (values) => boardService.editBoard(boardId, values.boardTitle, values.boardThumbnailPhoto)
-    }
+    onSubmit={async (values) => {
+      const status = await boardService.editBoard(
+        boardId, values.boardTitle, values.boardThumbnailPhoto
+      );
+      if (status.status === false) {
+        Alert.alert(status.message);
+      } else {
+        Alert.alert('Board edited successfully!');
+      }
+    }}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView
+  View, TextInput, Text, TouchableHighlight, KeyboardAvoidingView, Alert
 } from 'react-native';
 import { Formik } from 'formik';
 import * as boardService from '../../../services/boardService';
@@ -10,7 +10,14 @@ import styles from '../../../styles/styles'
 const NewBoardInput = () => (
   <Formik
     initialValues={{ title: '', thumbnailPhoto: '' }}
-    onSubmit={(values) => boardService.createNewBoard(values)}
+    onSubmit={async (values) => {
+      const status = await boardService.createNewBoard(values);
+      if (status.status === false) {
+        Alert.alert(status.message);
+      } else {
+        Alert.alert('Board created successfully!');
+      }
+    }}
   >
     {({
       handleChange, handleBlur, handleSubmit, values

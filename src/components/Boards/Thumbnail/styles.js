@@ -5,10 +5,9 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     width: 190,
-    height: 190,
-    margin: 9,
-    borderWidth: 1,
-    borderColor: '#000',
+    height: 'auto',
+    margin: 6,
+    padding: 5,
     borderRadius: 5,
     backgroundColor: 'white'
   },
@@ -18,15 +17,6 @@ export default StyleSheet.create({
   image: {
     width: 180,
     height: 150,
-    margin: 5,
     position: 'relative'
-  },
-  editButton: {
-    position: 'absolute',
-    right: 5,
-    top: 0,
-    height: 50,
-    width: 50,
-    zIndex: 1
   }
 });

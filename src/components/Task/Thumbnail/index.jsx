@@ -19,10 +19,16 @@ function editAlert(taskId, taskTitle, taskDescription, taskIsFinished, navigatio
         style: 'cancel',
       },
       {
+        text: 'Move task',
+        onPress: () => navigation.navigate('MoveTask', {
+          taskId, navigation
+        })
+      },
+      {
         text: 'Delete task',
         onPress: () => taskService.deleteTask(taskId),
         style: 'destructive',
-      },
+      }
     ],
     { cancelable: true },
   );
@@ -35,8 +41,8 @@ const Thumbnail = ({ id, name, description, isFinished, navigation }) => (
     onLongPress={() => { editAlert(id, name, description, isFinished, navigation); }}
   >
     <>
-      <Text style={styles.thumbnailText}>{name}</Text>
-      <Text style={styles.thumbnailText}>{description}</Text>
+      <Text style={styles.thumbnailTitle}>{name}</Text>
+      <Text style={styles.thumbnailDescription}>{description}</Text>
     </>
   </TouchableHighlight>
 

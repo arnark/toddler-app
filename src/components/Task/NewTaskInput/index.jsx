@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-View, TextInput, TouchableHighlight, Text, KeyboardAvoidingView
+View, TextInput, TouchableHighlight, Text, KeyboardAvoidingView, Alert, Switch
 } from 'react-native';
 import { Formik } from 'formik';
 import * as taskService from '../../../services/taskService';
@@ -9,7 +9,14 @@ import styles from '../../../styles/styles'
 const NewTaskInput = ({ listId }) => (
   <Formik
     initialValues={{ title: '', description: '' }}
-    onSubmit={(values) => taskService.createNewTask(values, listId)}
+    onSubmit={async (values) => {
+      const status = await taskService.createNewTask(values, listId);
+      if (status.status === false) {
+        Alert.alert(status.message);
+      } else {
+        Alert.alert('Task created successfully!');
+      }
+    }}
   >
     {({
       handleChange, handleBlur, handleSubmit, values
@@ -30,6 +37,7 @@ const NewTaskInput = ({ listId }) => (
             onBlur={handleBlur('description')}
             value={values.description}
           />
+          <Switch />
         </View>
         <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={60}>
           <TouchableHighlight onPress={handleSubmit}>
