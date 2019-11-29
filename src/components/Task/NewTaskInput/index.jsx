@@ -37,7 +37,6 @@ const NewTaskInput = ({ listId }) => (
             onBlur={handleBlur('description')}
             value={values.description}
           />
-          <Switch />
         </View>
         <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={60}>
           <TouchableHighlight onPress={handleSubmit}>
